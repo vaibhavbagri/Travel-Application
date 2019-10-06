@@ -1,0 +1,15 @@
+<h2>Great! Now choose what you are interested in ...</h2>
+<h3>(Select at least one, you can select multiple interests)</h3>
+
+<form>  
+  
+  <div class="form-check mb-3">
+    <label formArrayName="orders" *ngFor="let track of tracks">
+      <input type="checkbox">
+      {{track.Interest}}
+    </label>
+  </div>
+  <button class="btn btn-primary" type="submit" routerLink="/">Back</button>
+  <button class="btn btn-primary" type="submit">Next...</button>
+
+</form>

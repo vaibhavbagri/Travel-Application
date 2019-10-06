@@ -1,0 +1,14 @@
+<h2>Start by selecting where you wish to go ...</h2>
+<h3>(Select at least one, you can select multiple destinations)</h3>
+
+<form>  
+  
+  <div class="form-check mb-3">  
+    <label formArrayName="orders" *ngFor="let dest of destinations">
+      <input type="checkbox">
+      {{dest.Destination}}
+    </label>
+  </div>
+  <button class="btn btn-primary" type="submit" routerLink="/tracks">Next...</button>
+
+</form>

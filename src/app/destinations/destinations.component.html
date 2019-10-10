@@ -1,14 +1,20 @@
 <h2>Start by selecting where you wish to go ...</h2>
 <h3>(Select at least one, you can select multiple destinations)</h3>
 
-<form>  
+<form #userForm="ngForm" (ngSubmit)="submit()">  
   
+  {{ userForm.value | json }}
+
   <div class="form-check mb-3">  
-    <label formArrayName="orders" *ngFor="let dest of destinations">
-      <input type="checkbox">
+    <label *ngFor="let dest of destinations">
+      <input type="checkbox" name={{dest.Destination}} ngModel>
       {{dest.Destination}}
     </label>
+    <!-- <label formArrayName="dests" *ngFor="let dest of form.controls.dests.controls; let i = index">
+      <input type="checkbox" [formControlName]="i">
+      {{destinations[i].Destination}}
+    </label> -->
   </div>
-  <button class="btn btn-primary" type="submit" routerLink="/tracks">Next...</button>
+  <button class="btn btn-primary" type="submit">Next...</button>
 
 </form>

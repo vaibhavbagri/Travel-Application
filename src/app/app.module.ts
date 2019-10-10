@@ -5,18 +5,25 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { TracksComponent } from './tracks/tracks.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccComponent } from './acc/acc.component';
+import { DurationComponent } from './duration/duration.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DestinationsComponent,
-    TracksComponent
+    TracksComponent,
+    AccComponent,
+    DurationComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

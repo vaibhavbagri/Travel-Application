@@ -3,12 +3,13 @@
 
 <form #userForm="ngForm" (ngSubmit)="submit()">  
 
-  {{ userForm.value | json }}
+  <!-- {{ userForm.value | json }} -->
   
   <div class="form-check mb-3">
     <label *ngFor="let track of tracks">
-      <input type="checkbox" name={{track.Interest}} ngModel>
-      {{track.Interest}}
+      <div *ngIf="trips.tracks.indexOf(track.Interest)==-1; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock><input type="checkbox" name={{track.Interest}} ngModel>{{track.Interest}}</ng-template>
+      <ng-template #elseBlock><input type="checkbox" name={{track.Interest}} [ngModel]="true">{{track.Interest}}</ng-template>
     </label>
   </div>
   <button class="btn btn-primary" type="button" routerLink="/">Back</button>

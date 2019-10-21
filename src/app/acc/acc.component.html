@@ -1,33 +1,49 @@
 <h2>Almost there, please tell us the last few bits ...</h2>
 
-<form>  
+<form #userForm1="ngForm">  
   <h3>Accomodation type:</h3>
-  <div class="form-check mb-3">
-    <input class="form-check-input" type="checkbox" name="luxury">
+  <!-- <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" name="luxury" ngModel>
     <label class="form-check-label">
       Luxury Hotels
     </label>
-    <input class="form-check-input" type="checkbox" name="budget">
+    <input class="form-check-input" type="checkbox" name="budget" ngModel>
     <label class="form-check-label">
       Budget Hotels
     </label>
-    <input class="form-check-input" type="checkbox" name="guest">
+    <input class="form-check-input" type="checkbox" name="guest" ngModel>
     <label class="form-check-label">
       Guest house / Home stay 
     </label>
-  </div>
-  <h3>Transportation:</h3>
+  </div> -->
   <div class="form-check mb-3">
-    <input class="form-check-input" type="checkbox" name="luxury">
+      <label *ngFor="let accom of accomodation">
+        <div *ngIf="trips.acc.indexOf(accom)==-1; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock><input type="checkbox" name={{accom}} ngModel>{{accom}}</ng-template>
+        <ng-template #elseBlock><input type="checkbox" name={{accom}} [ngModel]="true">{{accom}}</ng-template>
+      </label>
+    </div>
+</form>
+<form #userForm2="ngForm" (ngSubmit)="submit()">
+  <h3>Transportation:</h3>
+  <!-- <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" name="luxury" ngModel>
     <label class="form-check-label">
       Luxury
     </label>
-    <input class="form-check-input" type="checkbox" name="economy">
+    <input class="form-check-input" type="checkbox" name="economy" ngModel>
     <label class="form-check-label">
       Economy
     </label>
-  </div>
-  <button class="btn btn-primary" type="submit" routerLink="/tracks">Back</button>
-  <button class="btn btn-primary" type="submit" routerLink="/duration">Next...</button>
+  </div> -->
+  <div class="form-check mb-3">
+      <label *ngFor="let trans of transport">
+        <div *ngIf="trips.transport.indexOf(trans)==-1; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock><input type="checkbox" name={{trans}} ngModel>{{trans}}</ng-template>
+        <ng-template #elseBlock><input type="checkbox" name={{trans}} [ngModel]="true">{{trans}}</ng-template>
+      </label>
+    </div>
+  <button class="btn btn-primary" type="button" routerLink="/tracks">Back</button>
+  <button class="btn btn-primary" type="submit">Next...</button>
 
 </form>

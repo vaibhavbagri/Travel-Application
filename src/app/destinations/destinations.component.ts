@@ -3,6 +3,7 @@ import { DestinationsService } from '../destinations.service';
 import { FormBuilder, FormGroup, FormArray, FormControl, NgForm } from '@angular/forms';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-destinations',
@@ -13,7 +14,7 @@ export class DestinationsComponent implements OnInit {
 
   // form : FormGroup;
   public destinations = [];
-  
+  public trips;
 
   // constructor( private _destinationService : DestinationsService, private formBuilder: FormBuilder) { 
   //   this.form = this.formBuilder.group({
@@ -23,12 +24,15 @@ export class DestinationsComponent implements OnInit {
   //   this.addCheckboxes();
   // }
 
-  constructor( private _destinationService : DestinationsService, private data: DataService, private router : Router ) {}
+  constructor( private _destinationService : DestinationsService, 
+               private data : DataService, 
+               private router : Router, 
+               private appComponent : AppComponent) {}
 
   ngOnInit() {
     this._destinationService.getDestination()
     .subscribe(data => this.destinations = data);
-    this.data.changeMessage("this.userFrm.value");
+    this.trips = this.appComponent.tripModel;
   }
 
   @ViewChild('userForm') public userFrm: NgForm;
@@ -52,8 +56,12 @@ export class DestinationsComponent implements OnInit {
     var filtered = keys.filter(function(key) {
       return obj[key]
     });
-    // console.log(filtered);
-    this.router.navigate(['/tracks'], { queryParams: { data: filtered }});
+    console.log(filtered);
+    // this.appComponent.tripModel.destinations = filtered;
+    this.trips.destinations = filtered
+    console.log(this.appComponent.tripModel);
+    // this.router.navigate(['/tracks'], { queryParams: { data: filtered }});
+    this.router.navigate(['/tracks']);
   }
 
 }

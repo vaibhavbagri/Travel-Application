@@ -8,6 +8,9 @@ import { TracksComponent } from './tracks/tracks.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccComponent } from './acc/acc.component';
 import { DurationComponent } from './duration/duration.component';
+import { SuggestedComponent } from './suggested/suggested.component';
+import { NgbModule, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { EmailComponent } from './email/email.component';
 
 
 @NgModule({
@@ -16,14 +19,17 @@ import { DurationComponent } from './duration/duration.component';
     DestinationsComponent,
     TracksComponent,
     AccComponent,
-    DurationComponent
+    DurationComponent,
+    SuggestedComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

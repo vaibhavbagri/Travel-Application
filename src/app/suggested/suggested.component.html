@@ -1,0 +1,35 @@
+<h2>Suggested Trips for You</h2>
+
+<div *ngFor="let trip of trips.trips.Trips">
+  <h3>{{trip.TripName}}</h3>
+  <h4>{{trip.ShortDescription}}</h4>
+
+  <ng-template #content let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">More Details</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let step of trip.Steps">
+          <h5>{{step.Header}}</h5>
+          <h6>{{step.Description}}</h6>
+          <hr>
+        </div>
+        <h4>Estimated Cost : {{trip.EstimatedCost}}</h4>
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-outline-dark" (click)="trips.trips=trip;d()" routerLink="/email">Get This Trip on Email</button>
+        
+      </div>
+    </ng-template>
+    
+    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">More Details</button>
+    
+    <hr>
+    
+</div>
+
+<button class="btn btn-primary" type="button" routerLink="/duration">Back</button>

@@ -8,6 +8,7 @@ export class TripService {
 
   private create_url: string = "http://localhost:52623/api/trip/Create";
   private update_url: string = "http://localhost:52623/api/trip/Update";
+  private email_url: string = "http://localhost:52623/api/Email/Send";
   constructor(private _http: HttpClient) { }
 
   create(obj){
@@ -15,5 +16,8 @@ export class TripService {
   }
   update(obj){
     return this._http.post<any>(this.update_url, obj);
+  }
+  email(obj){
+    return this._http.post<any>(this.email_url, obj);
   }
 }

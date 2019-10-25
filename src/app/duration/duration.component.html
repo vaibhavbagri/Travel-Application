@@ -1,35 +1,23 @@
 <h2>Please tell us how long your trip will be and how many travellers are there in your group</h2>
 
-<form #userForm1="ngForm" (ngSubmit)="submit()">  
 
+<form #userForm="ngForm" (ngSubmit)="submit()">
   <h3>Duration:</h3>
-  <div class="form-check mb-3">
-    <input class="form-check-input" type="checkbox" name="5to7" ngModel>
-    <label class="form-check-label">
-      5 - 7 Days
-    </label>
-    <input class="form-check-input" type="checkbox" name="8to10" ngModel>
-    <label class="form-check-label">
-      8 - 10 Days 
-    </label>
-    <input class="form-check-input" type="checkbox" name="over10" ngModel>
-    <label class="form-check-label">
-      Over 10 Days 
-    </label>  
+  <div class="form-group">
+    <select class="custom-select" name="duration" [(ngModel)]="trips.tripDays">
+      <option *ngFor="let day of days">{{ day }}</option>
+    </select>
   </div>
-</form>
-
-<form #userForm2="ngForm" (ngSubmit)="submit()">
   <h3>Group Details:</h3>
   <div class="form-group">
-    <select class="custom-select" name="adults" ngModel>
-      <option value="default">Adults</option>
+    <label>Adults</label>
+    <select class="custom-select" name="adults" [(ngModel)]="trips.adults">
       <option *ngFor="let number of numbers">{{ number }}</option>
     </select>
   </div>
   <div class="form-group">
-    <select class="custom-select" name="children" ngModel>
-      <option value="default">Children (below age 10)</option>
+    <label>Children</label>
+    <select class="custom-select" name="children" [(ngModel)]="trips.children">
       <option *ngFor="let number of numbers">{{ number }}</option>
     </select>
   </div>

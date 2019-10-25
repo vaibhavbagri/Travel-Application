@@ -9,6 +9,6 @@ import { Trip } from './trip';
 
 export class AppComponent {
   title = 'travelapp';
-  public tripModel = new Trip([],[],[],[],0,0,0,0,'');
+  public tripModel = new Trip([],[],[],[],0,0,'5-7 Days',0,0,'',{});
 
 }

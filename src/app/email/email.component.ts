@@ -40,7 +40,7 @@ export class EmailComponent implements OnInit {
     this._tripService.email(payload)
         .subscribe( data => {console.log(data);} )
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/confirmation']);
   }
 
 }

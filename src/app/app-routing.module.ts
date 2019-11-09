@@ -6,6 +6,7 @@ import { DurationComponent } from './duration/duration.component';
 import { AccComponent } from './acc/acc.component';
 import { SuggestedComponent } from './suggested/suggested.component';
 import { EmailComponent } from './email/email.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 const routes: Routes = [
   { path: 'tracks', component: TracksComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'duration', component: DurationComponent },
   { path: 'suggested', component: SuggestedComponent },
   { path: 'email', component: EmailComponent },
+  { path: 'confirmation', component: ConfirmationComponent },
 ];
 
 @NgModule({

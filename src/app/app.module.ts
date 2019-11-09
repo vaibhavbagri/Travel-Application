@@ -11,6 +11,7 @@ import { DurationComponent } from './duration/duration.component';
 import { SuggestedComponent } from './suggested/suggested.component';
 import { NgbModule, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EmailComponent } from './email/email.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EmailComponent } from './email/email.component';
     AccComponent,
     DurationComponent,
     SuggestedComponent,
-    EmailComponent
+    EmailComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
